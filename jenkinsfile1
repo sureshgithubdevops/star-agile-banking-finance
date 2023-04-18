@@ -29,5 +29,12 @@ pipeline {
       sh 'docker build -t 554716/bankproject2:latest .' 
           }
     }
+    stage('docker login'){
+    steps {
+      withCredentials([usernamePassword(credentialsId: 'dockerlogin', passwordVariable: 'dockerHubpassword', usernameVariable: 'dockerHubuser')]) {
+      sh "docker login -u ${env.dockerHubuser} -p ${env.dockerHubpassword}"
+            }
+      }
+   }
 }
 }
