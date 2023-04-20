@@ -44,7 +44,7 @@ pipeline {
    stage ('Configure Test-server with Terraform, Ansible and then Deploying'){
             steps {
                 dir('deployments'){
-                sh 'sudo chmod 600 bhempem.pem'
+                sh 'sudo chmod 600 bhem.pem'
                 sh 'terraform init'
                 sh 'terraform validate'
                 sh 'terraform apply --auto-approve'
